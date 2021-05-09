@@ -8,3 +8,13 @@ C:\Users\DELL\source\repos\Graphical Programming Language\Graphical Programming 
 C:\Users\DELL\source\repos\Graphical Programming Language\Graphical Programming Language\obj\Debug\Graphical Programming Language.csproj.CoreCompileInputs.cache
 C:\Users\DELL\source\repos\Graphical Programming Language\Graphical Programming Language\obj\Debug\Graphical Programming Language.exe
 C:\Users\DELL\source\repos\Graphical Programming Language\Graphical Programming Language\obj\Debug\Graphical Programming Language.pdb
+V:\Advanced-Software-Engineering\Advanced Software Engineering\Graphical Programming Language\bin\Debug\Graphical Programming Language.exe.config
+V:\Advanced-Software-Engineering\Advanced Software Engineering\Graphical Programming Language\bin\Debug\Graphical Programming Language.exe
+V:\Advanced-Software-Engineering\Advanced Software Engineering\Graphical Programming Language\bin\Debug\Graphical Programming Language.pdb
+V:\Advanced-Software-Engineering\Advanced Software Engineering\Graphical Programming Language\obj\Debug\Graphical Programming Language.csprojAssemblyReference.cache
+V:\Advanced-Software-Engineering\Advanced Software Engineering\Graphical Programming Language\obj\Debug\Graphical_Programming_Language.Form1.resources
+V:\Advanced-Software-Engineering\Advanced Software Engineering\Graphical Programming Language\obj\Debug\Graphical_Programming_Language.Properties.Resources.resources
+V:\Advanced-Software-Engineering\Advanced Software Engineering\Graphical Programming Language\obj\Debug\Graphical Programming Language.csproj.GenerateResource.cache
+V:\Advanced-Software-Engineering\Advanced Software Engineering\Graphical Programming Language\obj\Debug\Graphical Programming Language.csproj.CoreCompileInputs.cache
+V:\Advanced-Software-Engineering\Advanced Software Engineering\Graphical Programming Language\obj\Debug\Graphical Programming Language.exe
+V:\Advanced-Software-Engineering\Advanced Software Engineering\Graphical Programming Language\obj\Debug\Graphical Programming Language.pdb
