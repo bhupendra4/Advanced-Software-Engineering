@@ -39,6 +39,11 @@ namespace Graphical_Programming_Language
 
         public int _size1, _size2, _size3, _size4, _size5, _size6, _size7, _size8, _size9, _size10, _size11, _size12;
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            richTextBox1.Text = "";
+        }
+
         private void pnlShow_MouseUp(object sender, MouseEventArgs e)
         {
             startPaint = false;
@@ -347,7 +352,7 @@ namespace Graphical_Programming_Language
             }
             else
             {
-                MessageBox.Show("Command doesnot exist");
+                MessageBox.Show("Press Enter to Show result");
             }
         }
     }

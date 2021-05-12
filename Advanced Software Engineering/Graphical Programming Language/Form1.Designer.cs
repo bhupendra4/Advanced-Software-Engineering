@@ -52,9 +52,9 @@ namespace Graphical_Programming_Language
             this.button5 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,7 +70,6 @@ namespace Graphical_Programming_Language
             this.aboutUsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1238, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -152,6 +151,7 @@ namespace Graphical_Programming_Language
             this.button1.TabIndex = 8;
             this.button1.Text = "CLEAR";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Btn_runs
             // 
@@ -311,14 +311,14 @@ namespace Graphical_Programming_Language
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Position";
             // 
-            // label1
+            // label6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(109, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Y";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(135, 42);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 20);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "0:0";
             // 
             // label5
             // 
@@ -329,14 +329,14 @@ namespace Graphical_Programming_Language
             this.label5.TabIndex = 0;
             this.label5.Text = "0:0";
             // 
-            // label6
+            // label1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(135, 42);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 20);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "0:0";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(109, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(20, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Y";
             // 
             // Form1
             // 
