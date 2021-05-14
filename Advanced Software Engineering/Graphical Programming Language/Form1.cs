@@ -10,7 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Graphical_Programming_Language
+    
 {
+    /// <summary>
+    /// this is the code for form 1
+    /// </summary>
     public partial class Form1 : Form
     {
         Graphics g;
