@@ -415,7 +415,7 @@ namespace Graphical_Programming_Language
 
         private void hELPToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Graphical Programming Language || Version 1.0.2|| BHupendra");
+            MessageBox.Show("Graphical Programming Language || Version 1.0.2|| Bhupendra");
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

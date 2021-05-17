@@ -38,6 +38,7 @@ namespace Graphical_Programming_Language
             this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hELPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.brnexecute = new System.Windows.Forms.Button();
             this.btnclear = new System.Windows.Forms.Button();
             this.btnclear2 = new System.Windows.Forms.Button();
             this.Btn_runs = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@ namespace Graphical_Programming_Language
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnload = new System.Windows.Forms.Button();
-            this.brnexecute = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -63,7 +63,6 @@ namespace Graphical_Programming_Language
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.FloralWhite;
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -83,27 +82,27 @@ namespace Graphical_Programming_Language
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(59, 29);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(59, 32);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(163, 34);
             this.newToolStripMenuItem.Text = "New ";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(163, 34);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(163, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -113,14 +112,14 @@ namespace Graphical_Programming_Language
             this.hELPToolStripMenuItem});
             this.aboutUsToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
-            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(106, 29);
+            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(106, 32);
             this.aboutUsToolStripMenuItem.Text = "About us";
             this.aboutUsToolStripMenuItem.Click += new System.EventHandler(this.aboutUsToolStripMenuItem_Click);
             // 
             // hELPToolStripMenuItem
             // 
             this.hELPToolStripMenuItem.Name = "hELPToolStripMenuItem";
-            this.hELPToolStripMenuItem.Size = new System.Drawing.Size(154, 34);
+            this.hELPToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.hELPToolStripMenuItem.Text = "Help";
             this.hELPToolStripMenuItem.Click += new System.EventHandler(this.hELPToolStripMenuItem_Click);
             // 
@@ -137,38 +136,54 @@ namespace Graphical_Programming_Language
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(411, 665);
+            this.panel1.Size = new System.Drawing.Size(411, 689);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // brnexecute
+            // 
+            this.brnexecute.BackColor = System.Drawing.Color.Lime;
+            this.brnexecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brnexecute.Location = new System.Drawing.Point(261, 405);
+            this.brnexecute.Name = "brnexecute";
+            this.brnexecute.Size = new System.Drawing.Size(125, 50);
+            this.brnexecute.TabIndex = 0;
+            this.brnexecute.Text = "Execute";
+            this.brnexecute.UseVisualStyleBackColor = false;
+            this.brnexecute.Click += new System.EventHandler(this.brnexecute_Click);
+            // 
             // btnclear
             // 
+            this.btnclear.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnclear.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnclear.Location = new System.Drawing.Point(32, 404);
             this.btnclear.Name = "btnclear";
             this.btnclear.Size = new System.Drawing.Size(125, 50);
             this.btnclear.TabIndex = 0;
             this.btnclear.Text = "Clear";
-            this.btnclear.UseVisualStyleBackColor = true;
+            this.btnclear.UseVisualStyleBackColor = false;
             this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
             // 
             // btnclear2
             // 
-            this.btnclear2.Location = new System.Drawing.Point(32, 617);
+            this.btnclear2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnclear2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnclear2.Location = new System.Drawing.Point(32, 609);
             this.btnclear2.Name = "btnclear2";
-            this.btnclear2.Size = new System.Drawing.Size(115, 36);
+            this.btnclear2.Size = new System.Drawing.Size(125, 50);
             this.btnclear2.TabIndex = 10;
             this.btnclear2.Text = "Clear";
-            this.btnclear2.UseVisualStyleBackColor = true;
+            this.btnclear2.UseVisualStyleBackColor = false;
             this.btnclear2.Click += new System.EventHandler(this.btnclear2_Click);
             // 
             // Btn_runs
             // 
-            this.Btn_runs.BackColor = System.Drawing.SystemColors.Window;
+            this.Btn_runs.BackColor = System.Drawing.Color.Lime;
             this.Btn_runs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Btn_runs.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_runs.Location = new System.Drawing.Point(282, 609);
+            this.Btn_runs.Location = new System.Drawing.Point(261, 609);
             this.Btn_runs.Name = "Btn_runs";
-            this.Btn_runs.Size = new System.Drawing.Size(106, 35);
+            this.Btn_runs.Size = new System.Drawing.Size(125, 50);
             this.Btn_runs.TabIndex = 9;
             this.Btn_runs.Text = "RUN";
             this.Btn_runs.UseVisualStyleBackColor = false;
@@ -182,7 +197,7 @@ namespace Graphical_Programming_Language
             this.label3.AutoEllipsis = true;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(74, 477);
+            this.label3.Location = new System.Drawing.Point(129, 476);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 23);
             this.label3.TabIndex = 6;
@@ -204,7 +219,7 @@ namespace Graphical_Programming_Language
             this.label2.AutoEllipsis = true;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(74, 22);
+            this.label2.Location = new System.Drawing.Point(129, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 23);
             this.label2.TabIndex = 3;
@@ -225,7 +240,7 @@ namespace Graphical_Programming_Language
             this.pnlShow.BackColor = System.Drawing.SystemColors.Window;
             this.pnlShow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlShow.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlShow.Location = new System.Drawing.Point(411, 170);
+            this.pnlShow.Location = new System.Drawing.Point(411, 194);
             this.pnlShow.Name = "pnlShow";
             this.pnlShow.Size = new System.Drawing.Size(827, 528);
             this.pnlShow.TabIndex = 2;
@@ -309,30 +324,22 @@ namespace Graphical_Programming_Language
             // 
             // btnload
             // 
-            this.btnload.Location = new System.Drawing.Point(464, 55);
+            this.btnload.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnload.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Bold);
+            this.btnload.Location = new System.Drawing.Point(435, 76);
             this.btnload.Name = "btnload";
-            this.btnload.Size = new System.Drawing.Size(75, 23);
+            this.btnload.Size = new System.Drawing.Size(106, 37);
             this.btnload.TabIndex = 7;
-            this.btnload.Text = "Load";
-            this.btnload.UseVisualStyleBackColor = true;
+            this.btnload.Text = "LOAD";
+            this.btnload.UseVisualStyleBackColor = false;
             this.btnload.Click += new System.EventHandler(this.btnload_Click);
-            // 
-            // brnexecute
-            // 
-            this.brnexecute.Location = new System.Drawing.Point(224, 407);
-            this.brnexecute.Name = "brnexecute";
-            this.brnexecute.Size = new System.Drawing.Size(149, 47);
-            this.brnexecute.TabIndex = 0;
-            this.brnexecute.Text = "Execute";
-            this.brnexecute.UseVisualStyleBackColor = true;
-            this.brnexecute.Click += new System.EventHandler(this.brnexecute_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1238, 698);
+            this.ClientSize = new System.Drawing.Size(1238, 722);
             this.Controls.Add(this.btnload);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
