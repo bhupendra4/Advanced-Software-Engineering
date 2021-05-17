@@ -38,15 +38,13 @@ namespace Graphical_Programming_Language
             this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hELPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnclear = new System.Windows.Forms.Button();
+            this.btnclear2 = new System.Windows.Forms.Button();
             this.Btn_runs = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.btn_Execute = new System.Windows.Forms.Button();
             this.pnlShow = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -55,6 +53,8 @@ namespace Graphical_Programming_Language
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnload = new System.Windows.Forms.Button();
+            this.brnexecute = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -90,19 +90,20 @@ namespace Graphical_Programming_Language
             // 
             this.newToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(163, 34);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.newToolStripMenuItem.Text = "New ";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(163, 34);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(163, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -125,11 +126,11 @@ namespace Graphical_Programming_Language
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.brnexecute);
+            this.panel1.Controls.Add(this.btnclear);
+            this.panel1.Controls.Add(this.btnclear2);
             this.panel1.Controls.Add(this.Btn_runs);
-            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.richTextBox1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.richTextBox2);
@@ -140,18 +141,25 @@ namespace Graphical_Programming_Language
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // button1
+            // btnclear
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(24, 609);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 35);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "CLEAR";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnclear.Location = new System.Drawing.Point(32, 404);
+            this.btnclear.Name = "btnclear";
+            this.btnclear.Size = new System.Drawing.Size(125, 50);
+            this.btnclear.TabIndex = 0;
+            this.btnclear.Text = "Clear";
+            this.btnclear.UseVisualStyleBackColor = true;
+            this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
+            // 
+            // btnclear2
+            // 
+            this.btnclear2.Location = new System.Drawing.Point(32, 617);
+            this.btnclear2.Name = "btnclear2";
+            this.btnclear2.Size = new System.Drawing.Size(115, 36);
+            this.btnclear2.TabIndex = 10;
+            this.btnclear2.Text = "Clear";
+            this.btnclear2.UseVisualStyleBackColor = true;
+            this.btnclear2.Click += new System.EventHandler(this.btnclear2_Click);
             // 
             // Btn_runs
             // 
@@ -166,19 +174,6 @@ namespace Graphical_Programming_Language
             this.Btn_runs.UseVisualStyleBackColor = false;
             this.Btn_runs.Click += new System.EventHandler(this.Btn_runs_Click);
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.Window;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button3.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(282, 398);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 35);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "EXECUTE";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button1_Click);
-            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -192,19 +187,6 @@ namespace Graphical_Programming_Language
             this.label3.Size = new System.Drawing.Size(135, 23);
             this.label3.TabIndex = 6;
             this.label3.Text = "Single line CMD";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.Window;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(24, 398);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 35);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "CLEAR";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
             // 
@@ -237,19 +219,6 @@ namespace Graphical_Programming_Language
             this.richTextBox2.TabIndex = 4;
             this.richTextBox2.Text = "";
             this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
-            // 
-            // btn_Execute
-            // 
-            this.btn_Execute.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_Execute.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_Execute.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Execute.Location = new System.Drawing.Point(435, 69);
-            this.btn_Execute.Name = "btn_Execute";
-            this.btn_Execute.Size = new System.Drawing.Size(106, 35);
-            this.btn_Execute.TabIndex = 5;
-            this.btn_Execute.Text = "LOAD";
-            this.btn_Execute.UseVisualStyleBackColor = false;
-            this.btn_Execute.Click += new System.EventHandler(this.button1_Click);
             // 
             // pnlShow
             // 
@@ -338,16 +307,36 @@ namespace Graphical_Programming_Language
             this.label1.TabIndex = 0;
             this.label1.Text = "Y";
             // 
+            // btnload
+            // 
+            this.btnload.Location = new System.Drawing.Point(464, 55);
+            this.btnload.Name = "btnload";
+            this.btnload.Size = new System.Drawing.Size(75, 23);
+            this.btnload.TabIndex = 7;
+            this.btnload.Text = "Load";
+            this.btnload.UseVisualStyleBackColor = true;
+            this.btnload.Click += new System.EventHandler(this.btnload_Click);
+            // 
+            // brnexecute
+            // 
+            this.brnexecute.Location = new System.Drawing.Point(224, 407);
+            this.brnexecute.Name = "brnexecute";
+            this.brnexecute.Size = new System.Drawing.Size(149, 47);
+            this.brnexecute.TabIndex = 0;
+            this.brnexecute.Text = "Execute";
+            this.brnexecute.UseVisualStyleBackColor = true;
+            this.brnexecute.Click += new System.EventHandler(this.brnexecute_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1238, 698);
+            this.Controls.Add(this.btnload);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.btn_Execute);
             this.Controls.Add(this.pnlShow);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -380,12 +369,8 @@ namespace Graphical_Programming_Language
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem hELPToolStripMenuItem;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button btn_Execute;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Btn_runs;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label4;
@@ -393,6 +378,10 @@ namespace Graphical_Programming_Language
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnclear;
+        private System.Windows.Forms.Button btnclear2;
+        private System.Windows.Forms.Button btnload;
+        private System.Windows.Forms.Button brnexecute;
     }
 }
 
