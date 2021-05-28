@@ -31,7 +31,7 @@ namespace Graphical_Programming_Language
         {
 
         }
-        public int xb1, yb1, xb2, yb2, xbb1, ybb1, xbb2, ybb2, xbbb1, ybbb1, xbbb2, ybbb2;
+        public int b1, bb1, b2, bb2, c1, cc1, c2, cc2, d1, dd1, d2, dd2;
         Color paintColor = Color.Blue;
 
         Brush dd = new SolidBrush(Color.Red);
@@ -913,24 +913,24 @@ namespace Graphical_Programming_Language
                         s5 = int.Parse(match4.Groups[8].Value);
 
 
-                        xb1 = s1;
-                        yb1 = s2;
-                        xb2 = Math.Abs(s3);
-                        yb2 = s2;
+                        b1 = s1;
+                        bb1 = s2;
+                        b2 = Math.Abs(s3);
+                        bb2 = s2;
 
-                        xbb1 = s1;
-                        ybb1 = s2;
-                        xbb2 = s1;
-                        ybb2 = Math.Abs(s4);
+                        c1 = s1;
+                        cc1 = s2;
+                        c2 = s1;
+                        cc2 = Math.Abs(s4);
 
-                        xbbb1 = Math.Abs(s3);
-                        ybbb1 = s2;
-                        xbbb2 = s1;
-                        ybbb2 = Math.Abs(s4);
+                        d1 = Math.Abs(s3);
+                        dd1 = s2;
+                        d2 = s1;
+                        dd2 = Math.Abs(s4);
 
                         Factory shapeFactory = new Factory();
                         Shape c = shapeFactory.GetShape("triangle");
-                        c.set(texturestyle, dd, paintColor, xb1, yb1, xb2, yb2, xbb1, ybb1, xbb2, ybb2, xbbb1, ybbb1, xbbb2, ybbb2);
+                        c.set(texturestyle, dd, paintColor, b1, bb1, b2, bb2, c1, cc1, c2, cc2, d1, dd1, d2, dd2);
                         //=============================== 
                         c.draw(g);
                     }
@@ -955,24 +955,24 @@ namespace Graphical_Programming_Language
                         s5 = int.Parse(matchT.Groups[5].Value);
 
 
-                        xb1 = s1;
-                        yb1 = s2;
-                        xb2 = Math.Abs(s3);
-                        yb2 = s2;
+                        b1 = s1;
+                        bb1 = s2;
+                        b2 = Math.Abs(s3);
+                        bb2 = s2;
 
-                        xbb1 = s1;
-                        ybb1 = s2;
-                        xbb2 = s1;
-                        ybb2 = Math.Abs(s4);
+                        c1 = s1;
+                        cc1 = s2;
+                        c2 = s1;
+                        cc2 = Math.Abs(s4);
 
-                        xbbb1 = Math.Abs(s3);
-                        ybbb1 = s2;
-                        xbbb2 = s1;
-                        ybb2 = Math.Abs(s4);
+                        d1 = Math.Abs(s3);
+                        dd1 = s2;
+                        d2 = s1;
+                        cc2 = Math.Abs(s4);
 
                         Factory shapeFactory = new Factory();
                         Shape c = shapeFactory.GetShape("triangle"); //new rectangles();
-                        c.set(texturestyle, dd, paintColor, xb1, yb1, xb2, yb2, xbb1, ybb1, xbb2, ybb2, xbbb1, ybbb1, xbbb2, ybbb2);
+                        c.set(texturestyle, dd, paintColor, b1, bb1, b2, bb2, c1, cc1, c2, cc2, d1, dd1, d2, dd2);
                         c.draw(g);
                     }
                     catch (Exception ex)
