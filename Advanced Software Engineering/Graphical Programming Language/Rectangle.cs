@@ -9,7 +9,7 @@ namespace Graphical_Programming_Language
 {
  public   class Rectangle : Shape
     {
-        public int xPos, yPos, size, size1;
+        public int xPos, yPos, size1, size2;
         public int texturestyle;
         Brush brush;
         Color color;
@@ -18,16 +18,16 @@ namespace Graphical_Programming_Language
         /// implemented from shape class to draw rectangle
         /// </summary>
         /// <param name="g"></param>
-        public override void Draw(Graphics g)
+        public override void draw(Graphics g)
         {
             Pen p = new Pen(color, 3);
             if (texturestyle == 0)
             {
-                g.DrawRectangle(p, xPos, yPos, size, size1);
+                g.DrawRectangle(p, xPos, yPos, size1, size2);
             }
             else
             {
-                g.FillRectangle(brush, xPos, yPos, size, size1);
+                g.FillRectangle(brush, xPos, yPos, size1, size2);
             }
 
         }
@@ -38,8 +38,8 @@ namespace Graphical_Programming_Language
             this.color = colors;
             this.xPos = list[0];
             this.yPos = list[1];
-            this.size = list[2];
-            this.size1 = list[3];
+            this.size1 = list[2];
+            this.size2 = list[3];
         }
 
 

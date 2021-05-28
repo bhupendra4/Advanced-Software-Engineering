@@ -9,11 +9,12 @@ namespace Graphical_Programming_Language
 {
   public  class Triangle :Shape
     {
+        //yo sabai rename gara natar thapuxa...
         public int xi1, yi1, xi2, yi2, xii1, yii1, xii2, yii2, xiii1, yiii1, xiii2, yiii2;
         Color c1;
         int texturestyle;
         Brush bb;
-        public override void Draw(Graphics g)
+        public override void draw(Graphics g)
         {
             Pen p = new Pen(c1, 5);
 

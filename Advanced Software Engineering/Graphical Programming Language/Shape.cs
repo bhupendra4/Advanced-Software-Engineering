@@ -9,15 +9,10 @@ namespace Graphical_Programming_Language
 {
    public abstract class Shape
     {
-    
-        
-            /// <summary>
-            /// passing graphical value to shapes
-            /// </summary>
-            /// <param name="g"></param>
-            public abstract void Draw(Graphics g);
+  
+            public abstract void draw(Graphics g);
 
-            public abstract void set(int texturestyle, Brush kk, Color c, params int[] list);
+            public abstract void set(int texture, Brush myBrush, Color myColor, params int[] list);
         
     }
 }

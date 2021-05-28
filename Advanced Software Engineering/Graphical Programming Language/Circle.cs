@@ -9,21 +9,37 @@ namespace Graphical_Programming_Language
 {
   public  class Circle :Shape
     {
-        public int x, y, size, size1;
+        public int c, d, size, size1;
         Color f1;
-        int texturestyle;
+        int myTexture;
         Brush kk;
 
-        public override void Draw(Graphics g)
+
+
+
+
+        
+        
+
+
+
+
+
+
+
+
+
+
+        public override void draw(Graphics g)
         {
             Pen p = new Pen(f1, 5);
-            if (texturestyle == 0)
+            if (myTexture == 0)
             {
-                g.DrawEllipse(p, x, y, size, size1);
+                g.DrawEllipse(p, c, d, size, size1);
             }
             else
             {
-                g.FillEllipse(kk, x, y, size, size1);
+                g.FillEllipse(kk, c, d, size, size1);
             }
         }
         /// <summary>
@@ -35,11 +51,11 @@ namespace Graphical_Programming_Language
         /// <param name="list"></param>
         public override void set(int texturestyle, Brush kk, Color f1, params int[] list)
         {
-            this.texturestyle = texturestyle;
+            this.myTexture = texturestyle;
             this.kk = kk;
             this.f1 = f1;
-            this.x = list[0];
-            this.y = list[1];
+            this.c = list[0];
+            this.d = list[1];
             this.size = list[2];
             this.size1 = list[3];
         }
