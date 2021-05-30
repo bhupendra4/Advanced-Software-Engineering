@@ -45,14 +45,14 @@ namespace Graphical_Programming_Language
         int? inittY = null;
         int pointX, pointY= 0;
         Boolean drawmove = false;
-        int Counter12 = 0;
+        int Counter = 0;
         public int size001 = 0;
 
         public int radius = 0;
         public int width = 0;
         public int height = 0;
         public int Size = 0;
-        public int counter =0;
+        public int counter = 0;
 
         
  
@@ -105,9 +105,9 @@ namespace Graphical_Programming_Language
                     }
                 }
             }
-            for (counter = 0; counter < number; counter++)
+            for (Counter = 0; Counter < number; Counter++)
             {
-                String singlecommand = txtCommand.Lines[counter];
+                String singlecommand = txtCommand.Lines[Counter];
                 singlecommand = singlecommand.Trim();
                 if (!singlecommand.Equals(""))
                 {
@@ -119,6 +119,7 @@ namespace Graphical_Programming_Language
 
         private void RunCommand(String singlecommand)
         {
+
             Boolean hasPlus = singlecommand.Contains('+');
             Boolean hasEquals = singlecommand.Contains("=");
             if (hasEquals)
@@ -166,9 +167,11 @@ namespace Graphical_Programming_Language
 
                     int ifStartLine = (GetIfStartLineNumber());
                     int ifEndLine = (GetEndifEndLineNumber() - 1);
-                    counter = ifEndLine;
+                    Counter = ifEndLine;
                     if (loop)
                     {
+
+
                         for (int j = ifStartLine; j <= ifEndLine; j++)
                         {
                             string newsignlecommand = txtCommand.Lines[j];
@@ -206,6 +209,8 @@ namespace Graphical_Programming_Language
                     else if (words2[0].ToLower().Equals("counter"))
                     {
                         counter = int.Parse(words2[1]);
+
+
                     }
 
                 }
@@ -273,6 +278,9 @@ namespace Graphical_Programming_Language
             {
                 sendDrawCommand(singlecommand);
             }
+
+
+
         }
 
         /// <summary>
@@ -479,6 +487,29 @@ namespace Graphical_Programming_Language
                         }
                     }
                 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             }
         }
         /// <summary>
