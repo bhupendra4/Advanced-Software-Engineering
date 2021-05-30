@@ -63,7 +63,6 @@ namespace Graphical_Programming_Language
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.FloralWhite;
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -73,7 +72,7 @@ namespace Graphical_Programming_Language
             this.menuStrip1.Size = new System.Drawing.Size(1238, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+          //  this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -241,9 +240,9 @@ namespace Graphical_Programming_Language
             this.pnlShow.BackColor = System.Drawing.SystemColors.Window;
             this.pnlShow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlShow.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlShow.Location = new System.Drawing.Point(411, 194);
+            this.pnlShow.Location = new System.Drawing.Point(411, 196);
             this.pnlShow.Name = "pnlShow";
-            this.pnlShow.Size = new System.Drawing.Size(827, 528);
+            this.pnlShow.Size = new System.Drawing.Size(827, 526);
             this.pnlShow.TabIndex = 2;
             this.pnlShow.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlShow_MouseClick);
             this.pnlShow.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlShow_MouseDown);

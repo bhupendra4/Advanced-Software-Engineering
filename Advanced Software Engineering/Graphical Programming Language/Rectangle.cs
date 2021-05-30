@@ -9,7 +9,7 @@ namespace Graphical_Programming_Language
 {
  public   class Rectangle : Shape
     {
-        public int xPos, yPos, size1, size2;
+        public int xPos, yPos, size, size1;
         public int texturestyle;
         Brush brush;
         Color color;
@@ -23,11 +23,11 @@ namespace Graphical_Programming_Language
             Pen p = new Pen(color, 3);
             if (texturestyle == 0)
             {
-                g.DrawRectangle(p, xPos, yPos, size1, size2);
+                g.DrawRectangle(p, xPos, yPos, size, size1);
             }
             else
             {
-                g.FillRectangle(brush, xPos, yPos, size1, size2);
+                g.FillRectangle(brush, xPos, yPos, size, size1);
             }
 
         }
@@ -38,8 +38,8 @@ namespace Graphical_Programming_Language
             this.color = colors;
             this.xPos = list[0];
             this.yPos = list[1];
-            this.size1 = list[2];
-            this.size2 = list[3];
+            this.size = list[2];
+            this.size1 = list[3];
         }
 
 

@@ -18,8 +18,8 @@ namespace Graphical_Programming_Language
     /// </summary>
     public partial class Form1 : Form
     {
-        public Boolean savechnage = false;
-        public string FilePath;
+        public Boolean save = false;
+        public string path;
         Graphics g;
         public Form1()
         {
@@ -32,10 +32,10 @@ namespace Graphical_Programming_Language
 
         }
         public int b1, bb1, b2, bb2, c1, cc1, c2, cc2, d1, dd1, d2, dd2;
-        Color paintColor = Color.Blue;
+        Color mycolor12 = Color.Blue;
 
         Brush dd = new SolidBrush(Color.Red);
-        int textusrestyle = 5;
+        int text12 = 5;
 
         Factory shapeFactory = new Factory();
         Shape shapes;
@@ -43,15 +43,16 @@ namespace Graphical_Programming_Language
         bool startPaint = false;
         int? inittX = null;
         int? inittY = null;
-        int pointY, pointX = 0;
-        Boolean DrawOrMove = false;
-        int countLoop = 0;
+        int pointX, pointY= 0;
+        Boolean drawmove = false;
+        int Counter12 = 0;
+        public int size001 = 0;
 
         public int radius = 0;
         public int width = 0;
         public int height = 0;
         public int Size = 0;
-        public int count =0;
+        public int counter =0;
 
         
  
@@ -71,57 +72,59 @@ namespace Graphical_Programming_Language
         }
         private void loadCommandLines()
         {
-            int numbelines = txtCommand.Lines.Length;
+            int number = txtCommand.Lines.Length;
 
-            for (int i = 0; i < numbelines; i++)
+            for (int i = 0; i < number; i++)
             {
-                String onelinecommand = txtCommand.Lines[i];
-                onelinecommand = onelinecommand.Trim();
-                if (!onelinecommand.Equals(" "))
+                String singlecommanad = txtCommand.Lines[i];
+                singlecommanad = singlecommanad.Trim();
+                if (!singlecommanad.Equals(""))
                 {
-                    Boolean Drawto = Regex.IsMatch(onelinecommand.ToLower(), @"\ddrawto\d");
-                    Boolean moveto = Regex.IsMatch(onelinecommand.ToLower(), @"\dmoveto\d");
-                    if (Drawto || moveto)
+                    Boolean hasDrawto = Regex.IsMatch(singlecommanad.ToLower(), @"\bdrawto\b");
+                    Boolean hasMoveto = Regex.IsMatch(singlecommanad.ToLower(), @"\bmoveto\b");
+
+                    if (hasDrawto || hasMoveto)
                     {
-                        String args = onelinecommand.Substring(6, (onelinecommand.Length - 6));
+                        String args = singlecommanad.Substring(6, (singlecommanad.Length - 6));
                         String[] parms = args.Split(',');
-                        for (int k=0; k<parms.Length; k++)
+                        for (int j = 0; j < parms.Length; j++)
                         {
-                            parms[k] = parms[k].Trim();
+                            parms[j] = parms[j].Trim();
                         }
                         pointX = int.Parse(parms[0]);
                         pointY = int.Parse(parms[1]);
-                        DrawOrMove = true;
+                        drawmove = true;
                     }
                     else
                     {
-                        DrawOrMove = false;
+                        drawmove = false;
                     }
-                    if (moveto)
+                    if (hasMoveto)
                     {
                         pnlShow.Refresh();
                     }
                 }
             }
-            for (countLoop = 0; countLoop < numbelines; countLoop++)
+            for (counter = 0; counter < number; counter++)
             {
-                String onelinecommand = txtCommand.Lines[countLoop];
-                onelinecommand = onelinecommand.Trim();
-                if (!onelinecommand.Equals(""))
+                String singlecommand = txtCommand.Lines[counter];
+                singlecommand = singlecommand.Trim();
+                if (!singlecommand.Equals(""))
                 {
-                    runCommandLines(onelinecommand);
+                    RunCommand(singlecommand);
                 }
             }
-           
         }
-        private void runCommandLines(string onelinecommand)
+
+
+        private void RunCommand(String singlecommand)
         {
-            Boolean hasPlus = onelinecommand.Contains('+');
-            Boolean hasEquals = onelinecommand.Contains("=");
+            Boolean hasPlus = singlecommand.Contains('+');
+            Boolean hasEquals = singlecommand.Contains("=");
             if (hasEquals)
             {
-                onelinecommand = Regex.Replace(onelinecommand, @"\s+", " ");
-                string[] words = onelinecommand.Split(' ');
+                singlecommand = Regex.Replace(singlecommand, @"\s+", " ");
+                string[] words = singlecommand.Split(' ');
                 //removing white spaces in between words
                 for (int i = 0; i < words.Length; i++)
                 {
@@ -155,23 +158,24 @@ namespace Graphical_Programming_Language
                     }
                     else if (words[1].ToLower().Equals("counter"))
                     {
-                        if (count == int.Parse(words[3]))
+                        if (counter == int.Parse(words[3]))
                         {
                             loop = true;
                         }
                     }
-                    int ifStartLine = (ifLineStart());
-                    int ifEndLine = (ifLineEnd() - 1);
-                    countLoop = ifEndLine;
+
+                    int ifStartLine = (GetIfStartLineNumber());
+                    int ifEndLine = (GetEndifEndLineNumber() - 1);
+                    counter = ifEndLine;
                     if (loop)
                     {
                         for (int j = ifStartLine; j <= ifEndLine; j++)
                         {
-                            string oneLineCommand1 = txtCommand.Lines[j];
-                            oneLineCommand1 = oneLineCommand1.Trim();
-                            if (!oneLineCommand1.Equals(""))
+                            string newsignlecommand = txtCommand.Lines[j];
+                            newsignlecommand = newsignlecommand.Trim();
+                            if (!newsignlecommand.Equals(""))
                             {
-                                runCommandLines(oneLineCommand1);
+                                RunCommand(newsignlecommand);
                             }
                         }
                     }
@@ -182,7 +186,7 @@ namespace Graphical_Programming_Language
                 }
                 else
                 {
-                    string[] words2 = onelinecommand.Split('=');
+                    string[] words2 = singlecommand.Split('=');
                     for (int j = 0; j < words2.Length; j++)
                     {
                         words2[j] = words2[j].Trim();
@@ -201,51 +205,52 @@ namespace Graphical_Programming_Language
                     }
                     else if (words2[0].ToLower().Equals("counter"))
                     {
-                        count = int.Parse(words2[1]);
+                        counter = int.Parse(words2[1]);
                     }
+
                 }
             }
             else if (hasPlus)
             {
-                onelinecommand = System.Text.RegularExpressions.Regex.Replace(onelinecommand, @"\s+", " ");
-                string[] words = onelinecommand.Split(' ');
+                singlecommand = System.Text.RegularExpressions.Regex.Replace(singlecommand, @"\s+", " ");
+                string[] words = singlecommand.Split(' ');
                 if (words[0].ToLower().Equals("repeat"))
                 {
-                    count = int.Parse(words[1]);
+                    counter = int.Parse(words[1]);
                     if (words[2].ToLower().Equals("circle"))
                     {
-                        int increaseValue = size(onelinecommand);
+                        int increaseValue = GetSize(singlecommand);
                         radius = increaseValue;
-                        for (int j = 0; j < count; j++)
+                        for (int j = 0; j < counter; j++)
                         {
-                            circle(radius);
+                            DrawCircle(radius);
                             radius += increaseValue;
                         }
                     }
                     else if (words[2].ToLower().Equals("rectangle"))
                     {
-                        int increaseValue = size(onelinecommand);
-                        Size = increaseValue;
-                        for (int j = 0; j < count; j++)
+                        int increaseValue = GetSize(singlecommand);
+                        size001 = increaseValue;
+                        for (int j = 0; j < counter; j++)
                         {
-                            rectangle(Size, Size);
-                            Size += increaseValue;
+                            DrawRectangle(size001, size001);
+                            size001 += increaseValue;
                         }
                     }
                     else if (words[2].ToLower().Equals("triangle"))
                     {
-                        int increaseValue = size(onelinecommand);
-                        Size = increaseValue;
-                        for (int j = 0; j < count; j++)
+                        int increaseValue = GetSize(singlecommand);
+                        size001 = increaseValue;
+                        for (int j = 0; j < counter; j++)
                         {
-                            triangle(Size, Size, Size);
-                            Size += increaseValue;
+                            DrawTriangle(size001, size001, size001);
+                            size001 += increaseValue;
                         }
                     }
                 }
                 else
                 {
-                    string[] words2 = onelinecommand.Split('+');
+                    string[] words2 = singlecommand.Split('+');
                     for (int j = 0; j < words2.Length; j++)
                     {
                         words2[j] = words2[j].Trim();
@@ -266,21 +271,52 @@ namespace Graphical_Programming_Language
             }
             else
             {
-                whenDarwCommandTrue(onelinecommand);
+                sendDrawCommand(singlecommand);
             }
-
         }
-        
 
+        /// <summary>
+		/// Returns the size of structure
+		/// </summary>
+		/// <param name="lineCommand"></param>
+		/// <returns></returns>
+        private int GetSize(string lineCommand)
+        {
+            int value = 0;
+            if (lineCommand.ToLower().Contains("radius"))
+            {
+                int pos = (lineCommand.IndexOf("radius") + 6);
+                int size = lineCommand.Length;
+                String tempLine = lineCommand.Substring(pos, (size - pos));
+                tempLine = tempLine.Trim();
+                String newTempLine = tempLine.Substring(1, (tempLine.Length - 1));
+                newTempLine = newTempLine.Trim();
+                value = int.Parse(newTempLine);
 
-
-        private void whenDarwCommandTrue(String comandLineNumber)
+            }
+            else if (lineCommand.ToLower().Contains("size"))
+            {
+                int pos = (lineCommand.IndexOf("size") + 4);
+                int size = lineCommand.Length;
+                String tempLine = lineCommand.Substring(pos, (size - pos));
+                tempLine = tempLine.Trim();
+                String newTempLine = tempLine.Substring(1, (tempLine.Length - 1));
+                newTempLine = newTempLine.Trim();
+                value = int.Parse(newTempLine);
+            }
+            return value;
+        }
+        /// <summary>
+        ///  Initiate shapes and figure to build shapes
+        /// </summary>
+        /// <param name="lineOfCommand"></param>
+        private void sendDrawCommand(string lineOfCommand)
         {
             String[] shapes = { "circle", "rectangle", "triangle", "polygon" };
             String[] variable = { "radius", "width", "height", "counter", "size" };
 
-            comandLineNumber = System.Text.RegularExpressions.Regex.Replace(comandLineNumber, @"\s+", " ");
-            string[] words = comandLineNumber.Split(' ');
+            lineOfCommand = System.Text.RegularExpressions.Regex.Replace(lineOfCommand, @"\s+", " ");
+            string[] words = lineOfCommand.Split(' ');
             //removing white spaces in between words
             for (int i = 0; i < words.Length; i++)
             {
@@ -298,18 +334,18 @@ namespace Graphical_Programming_Language
                     {
                         if (words[1].ToLower().Equals("radius"))
                         {
-                            circle(radius);
+                            DrawCircle(radius);
                         }
                     }
                     else
                     {
-                        circle(Int32.Parse(words[1]));
+                        DrawCircle(Int32.Parse(words[1]));
                     }
 
                 }
                 else if (firstWord.Equals("rectangle"))
                 {
-                    String args = comandLineNumber.Substring(9, (comandLineNumber.Length - 9));
+                    String args = lineOfCommand.Substring(9, (lineOfCommand.Length - 9));
                     String[] parms = args.Split(',');
                     for (int i = 0; i < parms.Length; i++)
                     {
@@ -321,11 +357,11 @@ namespace Graphical_Programming_Language
                     {
                         if (thirdWordIsVariable)
                         {
-                            rectangle(width, height);
+                            DrawRectangle(width, height);
                         }
                         else
                         {
-                            rectangle(width, Int32.Parse(parms[1]));
+                            DrawRectangle(width, Int32.Parse(parms[1]));
                         }
 
                     }
@@ -333,27 +369,27 @@ namespace Graphical_Programming_Language
                     {
                         if (thirdWordIsVariable)
                         {
-                            rectangle(Int32.Parse(parms[0]), height);
+                            DrawRectangle(Int32.Parse(parms[0]), height);
                         }
                         else
                         {
-                            rectangle(Int32.Parse(parms[0]), Int32.Parse(parms[1]));
+                            DrawRectangle(Int32.Parse(parms[0]), Int32.Parse(parms[1]));
                         }
                     }
                 }
                 else if (firstWord.Equals("triangle"))
                 {
-                    String args = comandLineNumber.Substring(8, (comandLineNumber.Length - 8));
+                    String args = lineOfCommand.Substring(8, (lineOfCommand.Length - 8));
                     String[] parms = args.Split(',');
                     for (int i = 0; i < parms.Length; i++)
                     {
                         parms[i] = parms[i].Trim();
                     }
-                    triangle(Int32.Parse(parms[0]), Int32.Parse(parms[1]), Int32.Parse(parms[2]));
+                    DrawTriangle(Int32.Parse(parms[0]), Int32.Parse(parms[1]), Int32.Parse(parms[2]));
                 }
                 else if (firstWord.Equals("polygon"))
                 {
-                    String args = comandLineNumber.Substring(8, (comandLineNumber.Length - 8));
+                    String args = lineOfCommand.Substring(8, (lineOfCommand.Length - 8));
                     String[] parms = args.Split(',');
                     for (int i = 0; i < parms.Length; i++)
                     {
@@ -361,12 +397,12 @@ namespace Graphical_Programming_Language
                     }
                     if (parms.Length == 8)
                     {
-                        polygon(Int32.Parse(parms[0]), Int32.Parse(parms[1]), Int32.Parse(parms[2]), Int32.Parse(parms[3]),
+                        DrawPolygon(Int32.Parse(parms[0]), Int32.Parse(parms[1]), Int32.Parse(parms[2]), Int32.Parse(parms[3]),
                             Int32.Parse(parms[4]), Int32.Parse(parms[5]), Int32.Parse(parms[6]), Int32.Parse(parms[7]));
                     }
                     else if (parms.Length == 10)
                     {
-                        polygon(Int32.Parse(parms[0]), Int32.Parse(parms[1]), Int32.Parse(parms[2]), Int32.Parse(parms[3]),
+                        DrawPolygon(Int32.Parse(parms[0]), Int32.Parse(parms[1]), Int32.Parse(parms[2]), Int32.Parse(parms[3]),
                             Int32.Parse(parms[4]), Int32.Parse(parms[5]), Int32.Parse(parms[6]), Int32.Parse(parms[7]),
                             Int32.Parse(parms[8]), Int32.Parse(parms[9]));
                     }
@@ -378,11 +414,11 @@ namespace Graphical_Programming_Language
             {
                 if (firstWord.Equals("loop"))
                 {
-                    count = int.Parse(words[1]);
-                    int loopStartLine = (loopLineStart());
-                    int loopEndLine = (loopLineEnd() - 1);
-                    countLoop = loopEndLine;
-                    for (int i = 0; i < count; i++)
+                    counter = int.Parse(words[1]);
+                    int loopStartLine = (GetLoopStartLineNumber());
+                    int loopEndLine = (GetLoopEndLineNumber() - 1);
+                    counter = loopEndLine;
+                    for (int i = 0; i < counter; i++)
                     {
                         for (int j = loopStartLine; j <= loopEndLine; j++)
                         {
@@ -390,7 +426,7 @@ namespace Graphical_Programming_Language
                             oneLineCommand = oneLineCommand.Trim();
                             if (!oneLineCommand.Equals(""))
                             {
-                                runCommandLines(oneLineCommand);
+                                RunCommand(oneLineCommand);
                             }
                         }
                     }
@@ -422,14 +458,14 @@ namespace Graphical_Programming_Language
                     }
                     else if (words[1].ToLower().Equals("counter"))
                     {
-                        if (count == int.Parse(words[1]))
+                        if (counter == int.Parse(words[1]))
                         {
                             loop = true;
                         }
                     }
-                    int ifStartLine = (ifLineStart());
-                    int ifEndLine = (ifLineEnd() - 1);
-                    countLoop = ifEndLine;
+                    int ifStartLine = (GetIfStartLineNumber());
+                    int ifEndLine = (GetEndifEndLineNumber() - 1);
+                    counter = ifEndLine;
                     if (loop)
                     {
                         for (int j = ifStartLine; j <= ifEndLine; j++)
@@ -438,7 +474,7 @@ namespace Graphical_Programming_Language
                             oneLineCommand = oneLineCommand.Trim();
                             if (!oneLineCommand.Equals(""))
                             {
-                                runCommandLines(oneLineCommand);
+                                RunCommand(oneLineCommand);
                             }
                         }
                     }
@@ -449,45 +485,7 @@ namespace Graphical_Programming_Language
 		/// initiates loop 
 		/// </summary>
 		/// <returns></returns>
-        /// 
-
-
-
-
-
-
-
-
-
-
-        private int size(string lineCommand)
-        {
-            int value = 0;
-            if (lineCommand.ToLower().Contains("radius"))
-            {
-                int pos = (lineCommand.IndexOf("radius") + 6);
-                int size = lineCommand.Length;
-                String tempLine = lineCommand.Substring(pos, (size - pos));
-                tempLine = tempLine.Trim();
-                String newTempLine = tempLine.Substring(1, (tempLine.Length - 1));
-                newTempLine = newTempLine.Trim();
-                value = int.Parse(newTempLine);
-
-            }
-            else if (lineCommand.ToLower().Contains("size"))
-            {
-                int pos = (lineCommand.IndexOf("size") + 4);
-                int size = lineCommand.Length;
-                String tempLine = lineCommand.Substring(pos, (size - pos));
-                tempLine = tempLine.Trim();
-                String newTempLine = tempLine.Substring(1, (tempLine.Length - 1));
-                newTempLine = newTempLine.Trim();
-                value = int.Parse(newTempLine);
-            }
-            return value;
-        }
-
-        private int ifLineEnd()
+        private int GetEndifEndLineNumber()
         {
             int numberOfLines = txtCommand.Lines.Length;
             int lineNum = 0;
@@ -504,8 +502,11 @@ namespace Graphical_Programming_Language
             }
             return lineNum;
         }
-
-        private int ifLineStart()
+        /// <summary>
+		/// initiates if there is an if clause
+		/// </summary>
+		/// <returns></returns>
+        private int GetIfStartLineNumber()
         {
             int numberOfLines = txtCommand.Lines.Length;
             int lineNum = 0;
@@ -515,7 +516,7 @@ namespace Graphical_Programming_Language
                 String oneLineCommand = txtCommand.Lines[i];
                 oneLineCommand = Regex.Replace(oneLineCommand, @"\s+", " ");
                 string[] words = oneLineCommand.Split(' ');
-  
+                //removing white spaces in between words
                 for (int j = 0; j < words.Length; j++)
                 {
                     words[j] = words[j].Trim();
@@ -534,7 +535,7 @@ namespace Graphical_Programming_Language
 		/// Initiates loops
 		/// </summary>
 		/// <returns></returns>
-        private int loopLineEnd()
+        private int GetLoopEndLineNumber()
         {
             try
             {
@@ -558,8 +559,11 @@ namespace Graphical_Programming_Language
                 return 0;
             }
         }
-
-        private int loopLineStart()
+        /// <summary>
+        /// getting loops starting line number
+        /// </summary>
+        /// <returns></returns>
+        private int GetLoopStartLineNumber()
         {
             int numberOfLines = txtCommand.Lines.Length;
             int lineNum = 0;
@@ -585,34 +589,45 @@ namespace Graphical_Programming_Language
             return lineNum;
 
         }
-        private void polygon(int v1, int v2, int v3, int v4, int v5, int v6, int v7, int v8)
+       
+        private void DrawPolygon(int b1, int b2, int b3, int b4, int b5, int b6, int b7, int b8)
         {
-            Pen myPen = new Pen(paintColor);
+            Pen myPen = new Pen(mycolor12);
             Point[] pnt = new Point[5];
 
             pnt[0].X = pointX;
             pnt[0].Y = pointY;
 
-            pnt[1].X = pointX - v1;
-            pnt[1].Y = pointY - v2;
+            pnt[1].X = pointX - b1;
+            pnt[1].Y = pointY - b2;
 
-            pnt[2].X = pointX - v3;
-            pnt[2].Y = pointY - v4;
+            pnt[2].X = pointX - b3;
+            pnt[2].Y = pointY - b4;
 
-            pnt[3].X = pointX - v5;
-            pnt[3].Y = pointY - v6;
+            pnt[3].X = pointX - b5;
+            pnt[3].Y = pointY - b6;
 
-            pnt[4].X = pointX - v7;
-            pnt[4].Y = pointY - v8;
+            pnt[4].X = pointX - b7;
+            pnt[4].Y = pointY - b8;
 
             g.DrawPolygon(myPen, pnt);
         }
-        /**
-		 * Draw Polygon
-		 */
-        private void polygon(int v1, int v2, int v3, int v4, int v5, int v6, int v7, int v8, int v9, int v10)
+        /// <summary>
+        /// logic to draw polygon
+        /// </summary>
+        /// <param name="v1"></param>
+        /// <param name="v2"></param>
+        /// <param name="v3"></param>
+        /// <param name="v4"></param>
+        /// <param name="v5"></param>
+        /// <param name="v6"></param>
+        /// <param name="v7"></param>
+        /// <param name="v8"></param>
+        /// <param name="v9"></param>
+        /// <param name="v11"></param>
+        private void DrawPolygon(int v1, int v2, int v3, int v4, int v5, int v6, int v7, int v8, int v9, int v11)
         {
-            Pen myPen = new Pen(paintColor);
+            Pen myPen = new Pen(mycolor12);
             Point[] pnt = new Point[6];
 
             pnt[0].X = pointX;
@@ -631,42 +646,51 @@ namespace Graphical_Programming_Language
             pnt[4].Y = pointY - v8;
 
             pnt[5].X = pointX - v9;
-            pnt[5].Y = pointY - v10;
+            pnt[5].Y = pointY - v11;
             g.DrawPolygon(myPen, pnt);
         }
-        /**
-		 * Draws a triangle 
-		 */
-        private void triangle(int rBase, int adj, int hyp)
+        /// <summary>
+        /// logic to draw triangle
+        /// </summary>
+        /// <param name="basee"></param>
+        /// <param name="adj"></param>
+        /// <param name="hyp"></param>
+        private void DrawTriangle(int basee, int adj, int hyp)
         {
-            Pen myPen = new Pen(paintColor);
+            Pen myPen = new Pen(mycolor12);
             Point[] pnt = new Point[3];
 
             pnt[0].X = pointX;
             pnt[0].Y = pointY;
 
-            pnt[1].X = pointX - rBase;
+            pnt[1].X = pointX - basee;
             pnt[1].Y = pointY;
 
             pnt[2].X = pointX;
             pnt[2].Y = pointY - adj;
             g.DrawPolygon(myPen, pnt);
         }
-
-        private void rectangle(int width, int height)
+        /// <summary>
+        /// logic to draw rectangle
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        private void DrawRectangle(int width, int height)
         {
-            Pen myPen = new Pen(paintColor);
+            Pen myPen = new Pen(mycolor12);
             g.DrawRectangle(myPen, pointX - width / 2, pointY - height / 2, width, height);
         }
+        /// <summary>
+        /// logic to draw circle
+        /// </summary>
+        /// <param name="radius"></param>
 
-
-        private void circle(int radius)
+        private void DrawCircle(int radius)
         {
-            Pen myPen = new Pen(paintColor);
+            Pen myPen = new Pen(mycolor12);
             g.DrawEllipse(myPen, pointX - radius, pointY - radius, radius * 2, radius * 2);
         }
-
-
+    
 
 
 
@@ -839,7 +863,7 @@ namespace Graphical_Programming_Language
                         Factory shapeFactory = new Factory();
                         Shape c = shapeFactory.GetShape("rectangle");
 
-                        c.set(texturestyle, dd, paintColor, s1, s2, s3, s4);
+                        c.set(texturestyle, dd, mycolor12, s1, s2, s3, s4);
                         c.draw(g);
 
                     }
@@ -864,7 +888,7 @@ namespace Graphical_Programming_Language
 
                         Factory shapeFactory = new Factory();
                         Shape c = shapeFactory.GetShape("rectangle");
-                        c.set(texturestyle, dd, paintColor, s1, s2, s3, s4);
+                        c.set(texturestyle, dd, mycolor12, s1, s2, s3, s4);
 
                         c.draw(g);
                     }
@@ -888,7 +912,7 @@ namespace Graphical_Programming_Language
 
                         Factory shapeFactory = new Factory();
                         Shape c = shapeFactory.GetShape("circle");
-                        c.set(texturestyle, dd, paintColor, s1, s2, s3 * 2, s3 * 2);
+                        c.set(texturestyle, dd, mycolor12, s1, s2, s3 * 2, s3 * 2);
                         //c.draw(set);
                         c.draw(g);
                     }
@@ -930,7 +954,7 @@ namespace Graphical_Programming_Language
 
                         Factory shapeFactory = new Factory();
                         Shape c = shapeFactory.GetShape("triangle");
-                        c.set(texturestyle, dd, paintColor, b1, bb1, b2, bb2, c1, cc1, c2, cc2, d1, dd1, d2, dd2);
+                        c.set(texturestyle, dd, mycolor12, b1, bb1, b2, bb2, c1, cc1, c2, cc2, d1, dd1, d2, dd2);
                         //=============================== 
                         c.draw(g);
                     }
@@ -972,7 +996,7 @@ namespace Graphical_Programming_Language
 
                         Factory shapeFactory = new Factory();
                         Shape c = shapeFactory.GetShape("triangle"); //new rectangles();
-                        c.set(texturestyle, dd, paintColor, b1, bb1, b2, bb2, c1, cc1, c2, cc2, d1, dd1, d2, dd2);
+                        c.set(texturestyle, dd, mycolor12, b1, bb1, b2, bb2, c1, cc1, c2, cc2, d1, dd1, d2, dd2);
                         c.draw(g);
                     }
                     catch (Exception ex)

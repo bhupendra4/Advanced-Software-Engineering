@@ -10,7 +10,7 @@ namespace Graphical_Programming_Language
   public  class Triangle :Shape
     {
         
-        public int m1, n1, o1, p1, q1, mm1, nn2, oo2, pp2, qq2, mno1, mno2;
+        public int xi1, yi1, xi2, yi2, xii1, yii1, xii2, yii2, xiii1, yiii1, xiii2, yiii2;
         Color c1;
         int texturestyle;
         Brush bb;
@@ -19,9 +19,9 @@ namespace Graphical_Programming_Language
             Pen p = new Pen(c1, 5);
 
             //----------------------------------------------------------------------------------------------------------------------
-            g.DrawLine(p, m1, n1, o1, p1);
-            g.DrawLine(p, q1, mm1, nn2, oo2);
-            g.DrawLine(p, pp2, qq2, mno1, mno2);
+            g.DrawLine(p, xi1, yi1, xi2, yi2);
+            g.DrawLine(p, xii1, yii1, xii2, yii2);
+            g.DrawLine(p, xiii1, yiii1, xiii2, yiii2);
             //---------------------------------------------------------------------------------------------------------------------
         }
         public override void set(int texturestyle, Brush kk, Color f1, params int[] list)
@@ -30,20 +30,20 @@ namespace Graphical_Programming_Language
             this.bb = kk;
             this.c1 = f1;
 
-            this.m1 = list[0];
-            this.n1 = list[1];
-            this.o1 = list[2];
-            this.p1 = list[3];
+            this.xi1 = list[0];
+            this.yi1 = list[1];
+            this.xi2 = list[2];
+            this.yi2 = list[3];
 
-            this.q1 = list[4];
-            this.mm1 = list[5];
-            this.nn2 = list[6];
-            this.oo2 = list[7];
+            this.xii1 = list[4];
+            this.yii1 = list[5];
+            this.xii2 = list[6];
+            this.yii2 = list[7];
 
-            this.pp2 = list[8];
-            this.qq2 = list[9];
-            this.mno1 = list[10];
-            this.mno2 = list[11];
+            this.xiii1 = list[8];
+            this.yiii1 = list[9];
+            this.xiii2 = list[10];
+            this.yiii2 = list[11];
 
         }
 
